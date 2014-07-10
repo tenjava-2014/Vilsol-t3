@@ -1,0 +1,3 @@
+name: Vilsol-t3
+main: com.tenjava.entries.Vilsol.t3.TenJava
+version: '${project.version}'
