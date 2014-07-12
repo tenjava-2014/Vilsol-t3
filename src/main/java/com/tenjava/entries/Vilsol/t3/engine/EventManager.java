@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import org.bukkit.Location;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.tenjava.entries.Vilsol.t3.Config;
@@ -47,7 +48,11 @@ public class EventManager {
 		try {
 			eventObject = event.newInstance();
 			currentEvents.add(eventObject);
-			
+			Location l = null;
+			if(eventObject.doesRequireLocation()){
+				l = eventObject.getLocationType().generateLocation();
+			}
+			eventObject.onEvent(l);
 		} catch(InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
 		}

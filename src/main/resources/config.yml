@@ -8,10 +8,22 @@ Events:
     # Amount in percentage (out of 100%) that an event will happen
     EventChance: 5
   
+  	# List of world names that can have events happening in them.
+  	Worlds: [world]
+  	
   # Tornado Specific settings
   Tornado:
     # TODO
     
   # Meteorite Specific settings
   Meteorite:
-    # TODO
+    # This specifices the location where the meteorite will be dropped. More info below.
+    LocationType: NEAR_SPAWN
+   
+ 
+# Where you are able to specify a location, these are the valid options and their descriptions.
+# Available Options: 
+# RANDOM: Will spawn at a completely random location between -100 000 and +100 000.
+# PLAYER: Will choose a random player and spawn near that player.
+# NEAR_SPAWN: Will spawn at a location that is near the spawn.
+# LOADED_CHUNK:  Will spawn in a loaded chunk.
