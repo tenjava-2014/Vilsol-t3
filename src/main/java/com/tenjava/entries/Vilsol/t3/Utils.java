@@ -109,6 +109,8 @@ public class Utils {
 			
 			Vector pos2 = l.toVector().add(new Vector(rx, 0, rz));
 			HashSet<Vector> blocks = generateLine(l.getWorld(), pos1, pos2, r.nextInt(3) + 2);
+			blocks = removeDuplicates(blocks);
+			
 			for(Vector v : blocks) {
 				clearFromSkyToBedrock(new Location(l.getWorld(), v.getX(), v.getY(), v.getZ()));
 			}
@@ -200,11 +202,29 @@ public class Utils {
 		return Math.sqrt(sum);
 	}
 	
-	public static HashSet<?> removeDuplicates(HashSet<?> l){
-		Iterator<?> i = l.iterator();
+	public static HashSet<Vector> cloneSet(HashSet<Vector> l){
+		HashSet<Vector> set = new HashSet<Vector>();
+		for(Vector object : l) {
+			set.add(object);
+		}
+		return set;
+	}
+	
+	public static HashSet<Vector> removeDuplicates(HashSet<Vector> l){
+		// TODO Fix This
+		HashSet<Vector> clone = cloneSet(l);
+		Iterator<Vector> i = l.iterator();
 		while(i.hasNext()){
-			if(l.contains(i.next())){
-				i.remove();
+			Iterator<Vector> h = clone.iterator();
+			while(h.hasNext()){
+				if(!i.hasNext()) break;
+				Vector hN = h.next();
+				Vector iN = i.next();
+				if(hN == null || iN == null) break;
+				if(hN.toString().equals(iN.toString())){
+					i.remove();
+					break;
+				}
 			}
 		}
 		return l;
