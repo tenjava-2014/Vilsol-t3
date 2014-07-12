@@ -19,6 +19,7 @@ public class EventManager {
 		eventCaller = new BukkitRunnable() {
 			@Override
 			public void run() {
+				if(loadedEvents.size() == 0) return;
 				Random r = new Random();
 				if(r.nextInt(101) <= Config.eventChance) {
 					int theChosenEventNumber = r.nextInt(Config.availableEvents.size());

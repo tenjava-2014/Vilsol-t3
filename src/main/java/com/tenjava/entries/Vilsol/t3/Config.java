@@ -23,4 +23,7 @@ public class Config {
 	public static boolean earthquakeBroadcast = true;
 	public static LocationType earthquakeLocationType = LocationType.NEAR_SPAWN;
 	
+	public static boolean hailstormBroadcast = true;
+	public static LocationType hailstormLocationType = LocationType.NEAR_SPAWN;
+	
 }
