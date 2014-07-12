@@ -10,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.tenjava.entries.Vilsol.t3.engine.EventManager;
 import com.tenjava.entries.Vilsol.t3.engine.enums.LocationType;
 import com.tenjava.entries.Vilsol.t3.engine.events.EarthquakeEvent;
+import com.tenjava.entries.Vilsol.t3.engine.events.GRBEvent;
 import com.tenjava.entries.Vilsol.t3.engine.events.HailstormEvent;
 import com.tenjava.entries.Vilsol.t3.engine.events.MeteoriteEvent;
 
@@ -50,6 +51,10 @@ public class TenJava extends JavaPlugin {
 		Config.hailstormBroadcast = c.getBoolean("Events.Hailstorm.Broadcast");
 		if(c.getBoolean("Events.Hailstorm.Enabled")) Config.availableEvents.add(HailstormEvent.class);
 		if(LocationType.valueOf(c.getString("Events.Hailstorm.LocationType")) != null) Config.hailstormLocationType = LocationType.valueOf(c.getString("Events.Hailstorm.LocationType"));
+
+		Config.grbBroadcast = c.getBoolean("Events.GRB.Broadcast");
+		if(c.getBoolean("Events.GRB.Enabled")) Config.availableEvents.add(GRBEvent.class);
+		if(LocationType.valueOf(c.getString("Events.GRB.LocationType")) != null) Config.grbLocationType = LocationType.valueOf(c.getString("Events.GRB.LocationType"));
 		
 		if(c.isList("Events.Global.Worlds")) {
 			for(String s : c.getStringList("Events.Global.Worlds")) {

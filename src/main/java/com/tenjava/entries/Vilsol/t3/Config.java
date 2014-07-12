@@ -26,4 +26,7 @@ public class Config {
 	public static boolean hailstormBroadcast = true;
 	public static LocationType hailstormLocationType = LocationType.NEAR_SPAWN;
 	
+	public static boolean grbBroadcast = true;
+	public static LocationType grbLocationType = LocationType.NEAR_SPAWN;
+	
 }
