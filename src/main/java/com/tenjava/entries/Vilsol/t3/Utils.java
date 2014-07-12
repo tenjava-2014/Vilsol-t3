@@ -104,8 +104,11 @@ public class Utils {
 		Random r = new Random();
 		Vector pos1 = l.toVector();
 		for(int x = 0; x <= r.nextInt(5); x++){
-			Vector pos2 = l.toVector().add(new Vector(r.nextInt(50), 0, r.nextInt(50)));
-			HashSet<Vector> blocks = generateLine(l.getWorld(), pos1, pos2, r.nextInt(3) + 3);
+			int rx = r.nextInt(160) - 80;
+			int rz = r.nextInt(160) - 80;
+			
+			Vector pos2 = l.toVector().add(new Vector(rx, 0, rz));
+			HashSet<Vector> blocks = generateLine(l.getWorld(), pos1, pos2, r.nextInt(3) + 2);
 			for(Vector v : blocks) {
 				clearFromSkyToBedrock(new Location(l.getWorld(), v.getX(), v.getY(), v.getZ()));
 			}
