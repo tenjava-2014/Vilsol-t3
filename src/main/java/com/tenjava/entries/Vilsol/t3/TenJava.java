@@ -36,14 +36,15 @@ public class TenJava extends JavaPlugin {
 		FileConfiguration c = this.getConfig();
 		Config.eventChance = c.getInt("Events.Global.EventChance");
 		Config.eventRepeatDelay = c.getInt("Events.Global.EventRepeatDelay");
-		
+
+		Config.meteoriteBroadcast = c.getBoolean("Events.Meteorite.Broadcast");
 		if(!c.getBoolean("Events.Meteorite.Enabled")) Reference.availableEvents.remove(MeteoriteEvent.class);
 		if(LocationType.valueOf(c.getString("Events.Meteorite.LocationType")) != null) Config.meteoriteLocationType = LocationType.valueOf(c.getString("Events.Meteorite.LocationType"));
 		
-		if(c.isList("Events.Global.Worlds")){
+		if(c.isList("Events.Global.Worlds")) {
 			for(String s : c.getStringList("Events.Global.Worlds")) {
 				World w = Bukkit.getWorld(s);
-				if(w != null){
+				if(w != null) {
 					Config.availableWorlds.add(w);
 				}
 			}

@@ -20,6 +20,9 @@ Events:
     # This turns on and off the meteorite event. (true = on, false = off)
     Enabled: true
 
+    # This turns on and off the meteorite broadcast. (true = on, false = off)
+    Broadcast: true
+
     # This specifices the location where the meteorite will be dropped. More info below.
     LocationType: NEAR_SPAWN
 

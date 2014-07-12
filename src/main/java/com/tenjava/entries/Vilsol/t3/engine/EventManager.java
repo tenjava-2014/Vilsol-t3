@@ -23,7 +23,7 @@ public class EventManager {
 			@Override
 			public void run() {
 				Random r = new Random();
-				if(r.nextInt(101) < Config.eventChance) {
+				if(r.nextInt(101) <= Config.eventChance) {
 					int theChosenEventNumber = r.nextInt(Reference.availableEvents.size());
 					Class<? extends RandomEvent> theChosenEvent = Reference.availableEvents.get(theChosenEventNumber);
 					callEvent(theChosenEvent);
@@ -39,20 +39,16 @@ public class EventManager {
 			}
 		};
 		
-		eventCaller.runTaskTimer(TenJava.plugin, Config.eventRepeatDelay * 20L, Config.eventRepeatDelay * 20L);
+		eventCaller.runTaskTimer(TenJava.plugin, 0, Config.eventRepeatDelay * 20L);
 	}
 	
 	private void callEvent(Class<? extends RandomEvent> event) {
-		RandomEvent eventObject = null;
-		
 		try {
-			eventObject = event.newInstance();
+			RandomEvent eventObject = event.newInstance();
+			if(eventObject == null) return;
 			currentEvents.add(eventObject);
-			Location l = null;
-			if(eventObject.doesRequireLocation()){
-				l = eventObject.getLocationType().generateLocation();
-				l.setY(l.getWorld().getHighestBlockYAt(l));
-			}
+			Location l = eventObject.getLocationType().generateLocation();
+			l.setY(l.getWorld().getHighestBlockYAt(l));
 			eventObject.onEvent(l);
 		} catch(InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();

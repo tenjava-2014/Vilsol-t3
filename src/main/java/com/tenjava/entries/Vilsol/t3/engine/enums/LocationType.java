@@ -30,11 +30,8 @@ public enum LocationType {
 				Chunk c = w.getLoadedChunks()[r.nextInt(w.getLoadedChunks().length)];
 				l = c.getBlock(0, 0, 0).getLocation().add(r.nextInt(16) - 8, 0, r.nextInt(16) - 8);
 				break;
-			default:
 			case NEAR_SPAWN:
-				// TODO CHANGE TO HIGHER VALUES
-				// l = Utils.getRandomAvailableWorld().getSpawnLocation().add(r.nextInt(r.nextInt(160)) - 80, r.nextInt(r.nextInt(160)) - 80, r.nextInt(r.nextInt(160)) - 80);
-				l = Utils.getRandomAvailableWorld().getSpawnLocation().add(r.nextInt(16) - 8, 0, r.nextInt(16) - 8);
+				l = Utils.getRandomAvailableWorld().getSpawnLocation().add(r.nextInt(160) - 80, 0, r.nextInt(160) - 80);
 				break;
 		}
 		return l;
