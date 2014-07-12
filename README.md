@@ -51,6 +51,8 @@ Future Ideas
 
 In the future I want to expand the plugin so it supports a lot more disasters, like tornadoes, epidemics, etc. It would also support a lot more customization, for example, you would be able to customize what block types are created by the disasters etc. 
 
+I have made the plugin so it is very easy to add more events and customize them as you want. You only have to extend a single class and add a config option, and you are done.
+
 Screenshots
 -----------
 
