@@ -1,13 +1,17 @@
 package com.tenjava.entries.Vilsol.t3;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.Block;
+import org.bukkit.block.Chest;
 import org.bukkit.entity.Fireball;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
 public class Utils {
@@ -85,6 +89,13 @@ public class Utils {
 	
 	public static double lengthSquared(double x, double y, double z){
 		return (x * x) + (y * y) + (z * z);
+	}
+
+	public static void generateLootChest(Location sphereC) {
+		Block b = sphereC.getBlock();
+		b.setType(Material.CHEST);
+		Chest c = (Chest) b.getState();
+		c.getInventory().setContents((ItemStack[]) Arrays.asList(new ItemStack(Material.DIAMOND)).toArray());
 	}
 	
 }

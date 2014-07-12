@@ -34,9 +34,11 @@ public class MeteoriteEvent extends RandomEvent {
 			@Override
 			public void run() {
 				l.setY(l.getWorld().getHighestBlockYAt(l));
-				Utils.generateSphere(l.getWorld(), l.toVector(), Material.OBSIDIAN, new Random().nextInt(4) + 3);
+				Location sphereC = l.clone();
+				Utils.generateSphere(sphereC.getWorld(), sphereC.toVector(), Material.OBSIDIAN, new Random().nextInt(4) + 3);
 				l.setY(l.getWorld().getHighestBlockYAt(l));
 				l.getBlock().setType(Material.LAVA);
+				Utils.generateLootChest(sphereC);
 			}
 		}.runTaskLater(TenJava.plugin, 100L);
 		
