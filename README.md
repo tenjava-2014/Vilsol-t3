@@ -44,7 +44,7 @@ I have also implemented 4 types of location searching for the events:
 - NEAR_SPAWN: Will spawn at a location that is near the spawn.
 - LOADED_CHUNK:  Will spawn in a loaded chunk.
 
-This plugin also has a command ```/event```, which allows you to spawn any event you want.
+This plugin also has a command `/event`, which allows you to spawn any event you want.
 
 Future Ideas
 ------------
