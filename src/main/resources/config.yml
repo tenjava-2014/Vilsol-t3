@@ -1,0 +1,17 @@
+Events:
+
+  # Gloal Event settings
+  Global:
+    # Amount in seconds between every chance of a random event
+    EventRepeatDelay: 300
+    
+    # Amount in percentage (out of 100%) that an event will happen
+    EventChance: 5
+  
+  # Tornado Specific settings
+  Tornado:
+    # TODO
+    
+  # Meteorite Specific settings
+  Meteorite:
+    # TODO
