@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.tenjava.entries.Vilsol.t3.engine.EventManager;
 import com.tenjava.entries.Vilsol.t3.engine.enums.LocationType;
+import com.tenjava.entries.Vilsol.t3.engine.events.EarthquakeEvent;
 import com.tenjava.entries.Vilsol.t3.engine.events.MeteoriteEvent;
 
 public class TenJava extends JavaPlugin {
@@ -38,8 +39,12 @@ public class TenJava extends JavaPlugin {
 		Config.eventRepeatDelay = c.getInt("Events.Global.EventRepeatDelay");
 
 		Config.meteoriteBroadcast = c.getBoolean("Events.Meteorite.Broadcast");
-		if(!c.getBoolean("Events.Meteorite.Enabled")) Reference.availableEvents.remove(MeteoriteEvent.class);
+		if(c.getBoolean("Events.Meteorite.Enabled")) Config.availableEvents.add(MeteoriteEvent.class);
 		if(LocationType.valueOf(c.getString("Events.Meteorite.LocationType")) != null) Config.meteoriteLocationType = LocationType.valueOf(c.getString("Events.Meteorite.LocationType"));
+
+		Config.earthquakeBroadcast = c.getBoolean("Events.Earthquake.Broadcast");
+		if(c.getBoolean("Events.Earthquake.Enabled")) Config.availableEvents.add(EarthquakeEvent.class);
+		if(LocationType.valueOf(c.getString("Events.Earthquake.LocationType")) != null) Config.earthquakeLocationType = LocationType.valueOf(c.getString("Events.Earthquake.LocationType"));
 		
 		if(c.isList("Events.Global.Worlds")) {
 			for(String s : c.getStringList("Events.Global.Worlds")) {

@@ -7,7 +7,6 @@ import org.bukkit.Location;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.tenjava.entries.Vilsol.t3.Config;
-import com.tenjava.entries.Vilsol.t3.Reference;
 import com.tenjava.entries.Vilsol.t3.TenJava;
 import com.tenjava.entries.Vilsol.t3.engine.events.RandomEvent;
 
@@ -22,8 +21,8 @@ public class EventManager {
 			public void run() {
 				Random r = new Random();
 				if(r.nextInt(101) <= Config.eventChance) {
-					int theChosenEventNumber = r.nextInt(Reference.availableEvents.size());
-					Class<? extends RandomEvent> theChosenEvent = Reference.availableEvents.get(theChosenEventNumber);
+					int theChosenEventNumber = r.nextInt(Config.availableEvents.size());
+					Class<? extends RandomEvent> theChosenEvent = Config.availableEvents.get(theChosenEventNumber);
 					callEvent(theChosenEvent);
 				}
 			}
@@ -35,7 +34,7 @@ public class EventManager {
 	}
 	
 	private void loadEvents() {
-		for(Class<? extends RandomEvent> e : Reference.availableEvents) {
+		for(Class<? extends RandomEvent> e : Config.availableEvents) {
 			try {
 				RandomEvent event = e.newInstance();
 				loadedEvents.put(e, event);

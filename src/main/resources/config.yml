@@ -3,17 +3,24 @@ Events:
   # Gloal Event settings
   Global:
     # Amount in seconds between every chance of a random event
-    EventRepeatDelay: 300
+    EventRepeatDelay: 30
 
     # Amount in percentage (out of 100%) that an event will happen
-    EventChance: 5
+    EventChance: 100
 
     # List of world names that can have events happening in them.
     Worlds: [world]
 
-  # Tornado Specific settings
-  Tornado:
-    # TODO
+  # Earthquake Specific settings
+  Earthquake:
+    # This turns on and off the meteorite event. (true = on, false = off)
+    Enabled: true
+
+    # This turns on and off the meteorite broadcast. (true = on, false = off)
+    Broadcast: true
+
+    # This specifices the location where the meteorite will be dropped. More info below.
+    LocationType: NEAR_SPAWN
 
   # Meteorite Specific settings
   Meteorite:
