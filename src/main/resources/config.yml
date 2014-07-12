@@ -4,23 +4,26 @@ Events:
   Global:
     # Amount in seconds between every chance of a random event
     EventRepeatDelay: 300
-    
+
     # Amount in percentage (out of 100%) that an event will happen
     EventChance: 5
-  
-  	# List of world names that can have events happening in them.
-  	Worlds: [world]
-  	
+
+    # List of world names that can have events happening in them.
+    Worlds: [world]
+
   # Tornado Specific settings
   Tornado:
     # TODO
-    
+
   # Meteorite Specific settings
   Meteorite:
+    # This turns on and off the meteorite event. (true = on, false = off)
+    Enabled: true
+
     # This specifices the location where the meteorite will be dropped. More info below.
     LocationType: NEAR_SPAWN
-   
- 
+
+
 # Where you are able to specify a location, these are the valid options and their descriptions.
 # Available Options: 
 # RANDOM: Will spawn at a completely random location between -100 000 and +100 000.

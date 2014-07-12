@@ -19,20 +19,22 @@ public enum LocationType {
 		Random r = new Random();
 		switch(this) {
 			case RANDOM:
-				l = new Location(Utils.getRandomAvailableWorld(), r.nextInt(r.nextInt(200000)) - 100000, 0, r.nextInt(r.nextInt(200000)) - 100000);
+				l = new Location(Utils.getRandomAvailableWorld(), r.nextInt(200000) - 100000, 0, r.nextInt(200000) - 100000);
 				break;
 			case PLAYER:
 				Player p = Bukkit.getOnlinePlayers()[r.nextInt(Bukkit.getOnlinePlayers().length)];
-				l = p.getLocation().add(r.nextInt(r.nextInt(160)) - 80, r.nextInt(r.nextInt(160)) - 80, r.nextInt(r.nextInt(160)) - 80);
+				l = p.getLocation().add(r.nextInt(160) - 80, 0, r.nextInt(160));
 				break;
 			case LOADED_CHUNK:
 				World w = Utils.getRandomAvailableWorld();
 				Chunk c = w.getLoadedChunks()[r.nextInt(w.getLoadedChunks().length)];
-				l = c.getBlock(0, 0, 0).getLocation().add(r.nextInt(r.nextInt(16)) - 8, r.nextInt(r.nextInt(16)) - 8, r.nextInt(r.nextInt(16)) - 8);
+				l = c.getBlock(0, 0, 0).getLocation().add(r.nextInt(16) - 8, 0, r.nextInt(16) - 8);
 				break;
 			default:
 			case NEAR_SPAWN:
-				l = Utils.getRandomAvailableWorld().getSpawnLocation().add(r.nextInt(r.nextInt(160)) - 80, r.nextInt(r.nextInt(160)) - 80, r.nextInt(r.nextInt(160)) - 80);
+				// TODO CHANGE TO HIGHER VALUES
+				// l = Utils.getRandomAvailableWorld().getSpawnLocation().add(r.nextInt(r.nextInt(160)) - 80, r.nextInt(r.nextInt(160)) - 80, r.nextInt(r.nextInt(160)) - 80);
+				l = Utils.getRandomAvailableWorld().getSpawnLocation().add(r.nextInt(16) - 8, 0, r.nextInt(16) - 8);
 				break;
 		}
 		return l;

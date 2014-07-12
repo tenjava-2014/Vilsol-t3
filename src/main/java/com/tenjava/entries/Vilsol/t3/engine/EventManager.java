@@ -51,6 +51,7 @@ public class EventManager {
 			Location l = null;
 			if(eventObject.doesRequireLocation()){
 				l = eventObject.getLocationType().generateLocation();
+				l.setY(l.getWorld().getHighestBlockYAt(l));
 			}
 			eventObject.onEvent(l);
 		} catch(InstantiationException | IllegalAccessException e) {
