@@ -48,6 +48,7 @@ public class GRBEvent extends RandomEvent {
 					break;
 				case SAND:
 					b.setType(Material.GLASS);
+					break;
 				case GRASS:
 				case DIRT:
 					b.setType(Material.NETHERRACK);

@@ -52,7 +52,7 @@ public class EventManager {
 	 * Generates a random location and calls the event
 	 * @param event The event to be called
 	 */
-	private void callEvent(Class<? extends RandomEvent> event) {
+	public static void callEvent(Class<? extends RandomEvent> event) {
 		RandomEvent eventObject = loadedEvents.get(event);
 		if(eventObject == null) return;
 		Location l = eventObject.getLocationType().generateLocation();

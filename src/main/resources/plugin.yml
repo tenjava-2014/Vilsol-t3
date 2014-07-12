@@ -1,3 +1,7 @@
-name: Vilsol-t3
+name: NaturalDisasters
 main: com.tenjava.entries.Vilsol.t3.TenJava
 version: '${project.version}'
+commands:
+  event:
+    description: Allows spawning different events
+    usage: /<command> spawn <event>

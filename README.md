@@ -43,3 +43,10 @@ I have also implemented 4 types of location searching for the events:
 - PLAYER: Will choose a random player and spawn near that player.
 - NEAR_SPAWN: Will spawn at a location that is near the spawn.
 - LOADED_CHUNK:  Will spawn in a loaded chunk.
+
+This plugin also has a command ```/event```, which allows you to spawn any event you want.
+
+Future Ideas
+------------
+
+In the future I want to expand the plugin so it supports a lot more disasters, like tornadoes, epidemics, etc. It would also support a lot more customization, for example, you would be able to customize what block types are created by the disasters etc. 

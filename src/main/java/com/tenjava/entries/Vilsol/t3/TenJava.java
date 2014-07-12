@@ -28,6 +28,8 @@ public class TenJava extends JavaPlugin {
 		logger = this.getLogger();
 		eventManager = new EventManager();
 		
+		getCommand("event").setExecutor(new CommandEvent());
+		
 		logger.info("Successfully Loaded!");
 	}
 	
