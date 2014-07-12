@@ -35,6 +35,9 @@ public class TenJava extends JavaPlugin {
 		logger.info("Successfully Unloaded!");
 	}
 	
+	/**
+	 * Reads the values from the config
+	 */
 	private void readConfig() {
 		FileConfiguration c = this.getConfig();
 		Config.eventChance = c.getInt("Events.Global.EventChance");

@@ -33,6 +33,10 @@ public class HailstormEvent extends RandomEvent {
 		}.runTaskTimer(TenJava.plugin, 5L, 5l);
 	}
 
+	/**
+	 * Spawns 25 packed ice blocks around the location
+	 * @param l The location
+	 */
 	@SuppressWarnings("deprecation")
 	private void storm(Location l){
 		Random r = new Random();

@@ -25,6 +25,12 @@ public class GRBEvent extends RandomEvent {
 		}
 	}
 	
+	/**
+	 * Converts specific blocks to other blocks, as if GRB had struck
+	 * @param x X Coordinate
+	 * @param z Z Coordinate
+	 * @param w World
+	 */
 	private void convertBlocks(int x, int z, World w){
 		int start = w.getHighestBlockYAt(x, z);
 		int end = start - 6;

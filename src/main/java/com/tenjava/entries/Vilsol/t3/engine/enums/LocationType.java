@@ -14,6 +14,9 @@ public enum LocationType {
 	
 	RANDOM, PLAYER, NEAR_SPAWN, LOADED_CHUNK;
 	
+	/**
+	 * @return A random location based on what enum was chosen
+	 */
 	public Location generateLocation(){
 		Location l = null;
 		Random r = new Random();

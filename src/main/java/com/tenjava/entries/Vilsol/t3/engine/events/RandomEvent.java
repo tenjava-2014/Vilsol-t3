@@ -17,6 +17,10 @@ public abstract class RandomEvent {
 		this.messageFormat = messageFormat;
 	}
 	
+	/**
+	 * Calls the event, and broadcasts if allowed
+	 * @param l The location of the event
+	 */
 	public void callEvent(Location l){
 		if(broadcastMessage){
 			Bukkit.broadcastMessage(String.format(messageFormat, l.getWorld().getName(), l.getBlockX(), l.getBlockY(), l.getBlockZ()));
@@ -24,8 +28,15 @@ public abstract class RandomEvent {
 		onEvent(l);
 	}
 	
+	/**
+	 * Gets called when the event is happening
+	 * @param l The location of the event
+	 */
 	protected abstract void onEvent(Location l);
 	
+	/**
+	 * @return The location type for this event
+	 */
 	public LocationType getLocationType() {
 		return locationType;
 	}

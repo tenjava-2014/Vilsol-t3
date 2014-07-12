@@ -18,10 +18,22 @@ import org.bukkit.util.Vector;
 
 public class Utils {
 	
+	/**
+	 * @return A random world from the available worlds
+	 */
 	public static World getRandomAvailableWorld() {
 		return Config.availableWorlds.get(new Random().nextInt(Config.availableWorlds.size()));
 	}
 	
+	/**
+	 * Creates fireballs and launches them to the target
+	 * @param target The target
+	 * @param source The source
+	 * @param jitter Random distance from source
+	 * @param count How many fireballs
+	 * @param power How strong fireballs
+	 * @return A list of all the fireballs
+	 */
 	public static List<Fireball> spawnFireballAtFrom(Location target, Location source, int jitter, int count, int power) {
 		Random r = new Random();
 		
@@ -38,6 +50,13 @@ public class Utils {
 		return fireballs;
 	}
 	
+	/**
+	 * Generates a sphere
+	 * @param w The world of the sphere
+	 * @param v The location of the sphere
+	 * @param type The blocktype of the sphere
+	 * @param radius The radius of the sphere
+	 */
 	public static void generateSphere(World w, Vector v, Material type, double radius) {
 		radius += 0.5;
 		
@@ -84,15 +103,35 @@ public class Utils {
 		}
 	}
 	
+	/**
+	 * Sets a block in the world
+	 * @param w The world
+	 * @param v The location
+	 * @param m The blocktype
+	 * @param x X Coordinate
+	 * @param y Y Coordinate
+	 * @param z Z Coordinate
+	 */
 	private static void setBlock(World w, Vector v, Material m, int x, int y, int z) {
 		Vector ve = v.clone().add(new Vector(x, y, z));
 		new Location(w, ve.getX(), ve.getY(), ve.getZ()).getBlock().setType(m);
 	}
 	
+	/**
+	 * Squares all of the coordinates
+	 * @param x X Coordinate
+	 * @param y Y Coordinate
+	 * @param z Z Coordinate
+	 * @return The length squared
+	 */
 	public static double lengthSquared(double x, double y, double z) {
 		return (x * x) + (y * y) + (z * z);
 	}
 	
+	/**
+	 * Generates a lootchest at the location
+	 * @param sphereC The location
+	 */
 	public static void generateLootChest(Location sphereC) {
 		Block b = sphereC.getBlock();
 		b.setType(Material.CHEST);
@@ -100,6 +139,10 @@ public class Utils {
 		c.getInventory().setContents((ItemStack[]) Arrays.asList(new ItemStack(Material.DIAMOND)).toArray());
 	}
 	
+	/**
+	 * Generates an earthquake at the location
+	 * @param l the location
+	 */
 	public static void generateEarthquake(Location l){
 		Random r = new Random();
 		Vector pos1 = l.toVector();
@@ -117,6 +160,10 @@ public class Utils {
 		}
 	}
 	
+	/**
+	 * Clears all the blocks from the highest to lowest
+	 * @param l The location
+	 */
 	private static void clearFromSkyToBedrock(Location l){
 		int max = l.getWorld().getHighestBlockYAt(l);
 		for(int y = max; y > 0; y--){
@@ -124,6 +171,14 @@ public class Utils {
 		}
 	}
 	
+	/**
+	 * Generates a straight line
+	 * @param w The world
+	 * @param pos1 First position
+	 * @param pos2 Second Position
+	 * @param radius Thickness of the line
+	 * @return List of vectors from the line
+	 */
 	public static HashSet<Vector> generateLine(World w, Vector pos1, Vector pos2, double radius) {
 		boolean drawn = false;
 		
@@ -174,6 +229,12 @@ public class Utils {
 		return vset;
 	}
 	
+	/**
+	 * Thickens the hashed line
+	 * @param vset The list of vectors
+	 * @param radius The thickness of the lines
+	 * @return A list with thickened vectors
+	 */
 	private static HashSet<Vector> getBallooned(HashSet<Vector> vset, double radius) {
 		HashSet<Vector> returnset = new HashSet<Vector>();
 		int ceilrad = (int) Math.ceil(radius);
@@ -202,6 +263,11 @@ public class Utils {
 		return Math.sqrt(sum);
 	}
 	
+	/**
+	 * Clones a set of vectors
+	 * @param l The list of vectors
+	 * @return A new list of vectors
+	 */
 	public static HashSet<Vector> cloneSet(HashSet<Vector> l){
 		HashSet<Vector> set = new HashSet<Vector>();
 		for(Vector object : l) {
@@ -210,6 +276,11 @@ public class Utils {
 		return set;
 	}
 	
+	/**
+	 * Removes the duplicate vectors from the list
+	 * @param l The list of vectors
+	 * @return The cleared list
+	 */
 	public static HashSet<Vector> removeDuplicates(HashSet<Vector> l){
 		// TODO Fix This
 		HashSet<Vector> clone = cloneSet(l);
