@@ -1,8 +1,10 @@
 package com.tenjava.entries.Vilsol.t3.engine.events;
 
-import org.bukkit.Bukkit;
+import java.util.Random;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.tenjava.entries.Vilsol.t3.Config;
@@ -12,7 +14,7 @@ import com.tenjava.entries.Vilsol.t3.Utils;
 public class MeteoriteEvent extends RandomEvent {
 	
 	public MeteoriteEvent() {
-		locationType = Config.meteoriteLocationType;
+		super(Config.meteoriteLocationType, Config.meteoriteBroadcast, ChatColor.DARK_RED + "A meteorite has landed in '" + ChatColor.RED + "%s" + ChatColor.DARK_RED + "' at " + ChatColor.RED + "%d" + ", " + "%d" + ", " + "%d" + ChatColor.DARK_RED + "!");
 	}
 	
 	@Override
@@ -31,9 +33,10 @@ public class MeteoriteEvent extends RandomEvent {
 		new BukkitRunnable() {
 			@Override
 			public void run() {
-				// TODO Generate actual meteorite
-			
-				if(Config.meteoriteBroadcast) Bukkit.broadcastMessage(ChatColor.DARK_RED + "A meteorite has landed in '" + ChatColor.RED + l.getWorld().getName() + ChatColor.DARK_RED + "' at " + ChatColor.RED + l.getX() + ", " + l.getY() + ", " + l.getZ() + ChatColor.DARK_RED + "!");
+				l.setY(l.getWorld().getHighestBlockYAt(l));
+				Utils.generateSphere(l.getWorld(), l.toVector(), Material.OBSIDIAN, new Random().nextInt(4) + 3);
+				l.setY(l.getWorld().getHighestBlockYAt(l));
+				l.getBlock().setType(Material.LAVA);
 			}
 		}.runTaskLater(TenJava.plugin, 100L);
 		
