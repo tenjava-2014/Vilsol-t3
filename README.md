@@ -50,3 +50,14 @@ Future Ideas
 ------------
 
 In the future I want to expand the plugin so it supports a lot more disasters, like tornadoes, epidemics, etc. It would also support a lot more customization, for example, you would be able to customize what block types are created by the disasters etc. 
+
+Screenshots
+-----------
+
+This plugin can easily turn a world like this
+
+![](http://i.imgur.com/bYPNwcM.png)
+
+into this
+
+![](http://i.imgur.com/8ZXTwXN.png)
